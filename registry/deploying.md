@@ -64,8 +64,8 @@ Make sure you stopped your registry from the previous steps, then start your reg
 
     docker run -d -p 5000:5000 --restart=always --name registry \
       -v `pwd`/certs:/certs \
-      -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
-      -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
+      -e REGISTRY_HTTP_TLS_CERTIFICATE=certs/domain.crt \
+      -e REGISTRY_HTTP_TLS_KEY=certs/domain.key \
       registry:2
 
 You should now be able to access your registry from another docker host:
@@ -164,8 +164,8 @@ Make sure you stopped your registry from the previous step, then start it again:
       -e "REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm" \
       -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd \
       -v `pwd`/certs:/certs \
-      -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt \
-      -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key \
+      -e REGISTRY_HTTP_TLS_CERTIFICATE=certs/domain.crt \
+      -e REGISTRY_HTTP_TLS_KEY=certs/domain.key \
       registry:2
 
 You should now be able to:
